@@ -1,0 +1,4 @@
+interface:
+  display_name: "コード複雑度の最小化"
+  short_description: "契約を明確にし、状態、分岐、依存関係を最小化する設計規範"
+  default_prompt: "$minimize-code-complexity を使って、契約を明確にしながら実装の状態、分岐、依存関係を最小化してください。"
