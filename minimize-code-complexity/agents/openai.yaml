@@ -1,4 +1,4 @@
 interface:
   display_name: "コード複雑度の最小化"
-  short_description: "指標ハックを防ぎ、契約を守ってコード複雑度を最小化する規範"
-  default_prompt: "$minimize-code-complexity を使い、局所値、全体値、対抗指標を比較してコードの複雑度を最小化してください。"
+  short_description: "指標ハックを防ぎ、コードとテストの複雑度を最小化する規範"
+  default_prompt: "$minimize-code-complexity を使い、局所値、全体値、対抗指標を比較してコードとテストを必要最小限にしてください。"
