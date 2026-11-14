@@ -3,8 +3,8 @@
 <style>/*KATEX*/</style>
 <style>
 /* 白地の発表スライド。1920×1080 の舞台を画面に合わせて縮小する。単一テーマ。
-   色の役割：--must は「全経路・確定」、--may は「一部の経路・注目」、--mute は「なし・補足」。題材に合わせて読み替える。 */
-:root { --bg:#ffffff; --ink:#1a1a1a; --mute:#4b5563; --must:#1d5fd1; --may:#c2410c; --rule:#c9ced6; --mustbg:#eaf1fc; --maybg:#fdeee3; --nobg:#f0f1f3; --focus:#fff4cc;
+   色の役割：--c1 は第 1 の強調、--c2 は第 2 の強調、--mute は補足。意味は発表ごとに決め、全体で固定する。 */
+:root { --bg:#ffffff; --ink:#1a1a1a; --mute:#4b5563; --c1:#1d5fd1; --c2:#c2410c; --rule:#c9ced6; --c1bg:#eaf1fc; --c2bg:#fdeee3; --dimbg:#f0f1f3; --focus:#fff4cc;
   --sans:'Noto Sans JP','Noto Sans CJK JP','Hiragino Sans',sans-serif; --mono:'JetBrains Mono','Noto Sans Mono CJK JP',monospace; }
 [hidden] { display:none !important; }
 html,body { height:100%; }
@@ -19,7 +19,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--sans); display:
 .s { position:absolute; inset:0; padding:44px 60px; font-size:44px; line-height:1.5; }
 .s h2 { margin:0; font-size:60px; line-height:1.2; font-weight:700; }
 .crumb { position:absolute; right:60px; top:56px; font-size:38px; color:var(--mute); }
-.crumb b { color:var(--must); }
+.crumb b { color:var(--c1); }
 .cover { display:flex; flex-direction:column; justify-content:center; gap:28px; padding:128px; }
 .cover h1 { margin:0 0 24px; font-size:104px; line-height:1.2; font-weight:700; }
 .cover p { margin:0; font-size:44px; }
@@ -30,16 +30,16 @@ body { background:var(--bg); color:var(--ink); font-family:var(--sans); display:
 .n { position:absolute; display:flex; align-items:center; justify-content:center; text-align:center; font-family:var(--mono); font-size:36px; line-height:1.25;
   background:var(--bg); border:3px solid var(--ink); border-radius:10px; }
 .n.focus { background:var(--focus); border-width:5px; }
-.n.cmp { background:var(--maybg); border:5px solid var(--may); }
-.n.must { background:var(--mustbg); border:5px solid var(--must); }
-.n.k { background:#f4f5f7; font-weight:700; }
-.n.split { border:3px dashed var(--must); }
-.n.no { background:var(--nobg); border:5px solid var(--mute); }
+.n.hl2 { background:var(--c2bg); border:5px solid var(--c2); }
+.n.hl1 { background:var(--c1bg); border:5px solid var(--c1); }
+.n.em { background:#f4f5f7; font-weight:700; }
+.n.dash { border:3px dashed var(--c1); }
+.n.dim { background:var(--dimbg); border:5px solid var(--mute); }
 .t { position:absolute; font-size:36px; line-height:1.3; }
 .l { position:absolute; font-size:36px; font-weight:500; }
 .f, .p, .ab { position:absolute; }
 .p { display:flex; flex-direction:column; gap:22px; }
-.why { margin:0; font-size:42px; color:var(--must); font-weight:500; }
+.why { margin:0; font-size:42px; color:var(--c1); font-weight:500; }
 .hd { margin:0; font-size:44px; font-weight:700; }
 .p p { margin:0; }
 ul { margin:0; padding-left:1.1em; }
@@ -48,7 +48,7 @@ pre { margin:0; font-family:var(--mono); font-size:40px; line-height:1.5; backgr
 table { border-collapse:collapse; width:100%; font-size:42px; }
 th,td { text-align:left; padding:16px 22px; border-bottom:2px solid var(--rule); vertical-align:middle; }
 th { color:var(--mute); font-weight:500; font-size:42px; }
-tr.hl { background:var(--mustbg); }
+tr.hl { background:var(--c1bg); }
 table.sm { font-size:42px; }
 .m { font-size:46px; overflow:hidden; }
 .mi { font-size:44px; }
@@ -61,7 +61,7 @@ table.sm { font-size:42px; }
 .figs figcaption { font-size:40px; }
 nav { flex:none; display:flex; align-items:center; gap:12px; padding-block:8px; padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px)); border-top:1px solid var(--rule); font-size:14px; }
 nav button { font:inherit; padding:6px 14px; background:var(--bg); color:var(--ink); border:1px solid var(--rule); border-radius:6px; cursor:pointer; }
-nav button:focus-visible { outline:2px solid var(--must); outline-offset:1px; }
+nav button:focus-visible { outline:2px solid var(--c1); outline-offset:1px; }
 #no { font-variant-numeric:tabular-nums; min-width:8em; text-align:center; }
 #notes { flex:none; max-height:30%; overflow:auto; padding-block:10px; padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px)); border-top:1px solid var(--rule); font-size:16px; line-height:1.7; }
 </style>

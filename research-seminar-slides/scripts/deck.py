@@ -4,7 +4,7 @@
 
     from deck import Deck, ul, hd, panel, svg, box, lbl
     d = Deck(title='論文名 紹介')
-    d.slide('部分冗長性除去', ul('一部の経路で冗長な計算を除去', 'コード移動で実現'), note='発表者ノート')
+    d.slide('手法の概要', ul('入力の形', '問題になる箇所', '変換の考え方'), note='発表者ノート')
     d.build('index.html')
 
 数式は d.m(r'...') で書き、ビルド時に KaTeX でサーバー側描画する（KATEX_DIR に katex パッケージのディレクトリを渡す）。
@@ -61,12 +61,12 @@ def svg(edges, style=None):
 
 
 def box(cx, top, label, kind='', w=260, h=76):
-    """CFG のノード。kind は template.html の .n.<kind>（focus, cmp, must, k, split, no）。"""
+    """図のノード。kind は template.html の .n.<kind>（focus, hl1, hl2, em, dash, dim）。"""
     return f'<div class="n {kind}" style="left:{cx - w // 2}px;top:{top}px;width:{w}px;height:{h}px">{label}</div>'
 
 
 def lbl(x, y, text, color='#4b5563'):
-    """辺のラベル（真、偽、後退辺など）。線や箱に重ならない位置に置く。"""
+    """辺のラベル（分岐の真偽、辺の名前など）。線や箱に重ならない位置に置く。"""
     return f'<div class="l" style="left:{x}px;top:{y}px;color:{color}">{text}</div>'
 
 
