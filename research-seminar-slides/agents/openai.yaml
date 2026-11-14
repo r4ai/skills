@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究発表スライド"
+  short_description: "論文や手法を紹介するゼミ発表スライドを、具体例の図と事実確認つきで作る"
+  default_prompt: "$research-seminar-slides を使い、白地で大きな文字、CFG などの具体例を一手ずつ図で解く構成で、ゼミ発表スライドを作ってください。"
